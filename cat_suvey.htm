@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="styles.css">
+  <title>Survey Form</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Survey Form</title>
+  <style>
+    #title {
+      color: #2dd0fd; 
+      text-align: center;
+    }
+
+    body {
+      background-color: #3581b4; 
+      text-align: center; 
+      color: white;
+    }
+
+    form {
+      max-width: 500px;
+      text-align: left; 
+      padding: 20px;
+      border: 1px solid white; 
+      border-radius: 10px;
+      margin: auto; 
+    }
+
+    input {
+      padding: 5px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    .input-element {
+      margin: 10px 10px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    select {
+      padding: 5px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    .submit {
+      margin: 10px;
+    }
+
+    input[type="checkbox"] {
+      width: 30px;
+    }
+
+    input[type="radio"] {
+      width: 30px;
+    }
+
+    .textarea {
+      margin: 10px;
+    }
+
+    #name-label, #email-label, #number-label, #select-label {
+      margin: 5px;
+    }
+
+    .textarea textarea {
+      height: 100px;
+      width: 100%;  
+    }
+
+    input[type="submit"] {
+      color: blue;
+      width: 100px;
+      padding: 10px;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <!-- ... (rest of your HTML) ... -->
+</body>
+</html>
+
+</head>
+
+<body>
+  <h1 id="title">Survey</h1>
+  <p id="description">All about Cats</p>
+
+  <form id="survey-form">
+    <div class="input-element">
+      <label id="name-label" for="name">Name:</label>
+      <input required type="text" name="name" id="name" placeholder="Enter your name">
+    </div>
+
+    <div class="input-element">
+      <label id="email-label" for="email">Enter your Email:</label>
+      <input required type="email" name="email" id="email" placeholder="abc@email.com">
+    </div>
+
+    <div class="input-element">
+      <label id="number-label" for="number" >Age (optional)</label>
+      <input type="number" id="number" min="13" max="99" placeholder="Age">
+    </div>
+
+    <div class="input-element">
+      <label id="select-label" for="dropdown">Do you have a cat?</label>
+      <select id="dropdown">
+        <option>Yes</option>
+        <option>No</option>
+      </select>
+    </div>
+
+   <div class="input-element">
+  <p>How many cats do you have?</p>
+  <label for="cat-quantity-1">
+    <input class="input-radio" type="radio" name="cat-quantity" id="cat-quantity-1" value="1" checked/>1
+  </label>
+  <label for="cat-quantity-2">
+    <input class="input-radio" type="radio" name="cat-quantity" id="cat-quantity-2" value="2"/>2
+  </label>
+  <label for="cat-quantity-3">
+    <input class="input-radio" type="radio" name="cat-quantity" id="cat-quantity-3" value="3"/>3
+  </label>
+  <label for="cat-quantity-4-or-more"> <!-- Corrected the id -->
+    <input class="input-radio" type="radio" name="cat-quantity" id="cat-quantity-4-or-more" value="4 or more"/>4 or more
+  </label>
+  <label for="cat-quantity-None">
+    <input class="input-radio" type="radio" name="cat-quantity" id="cat-quantity-None" value="nocat"/>No cat
+  </label>
+</div>
+
+
+    <div class="input-element">
+  <p>What color is your cat(s)?</p>
+  <div>
+    <label for="cat-color-tabby">
+      <input class="checkbox" name="cat-color" id="cat-color-tabby" type="checkbox" value="tabby"/>Tabby
+    </label>
+  </div>
+  <div>
+    <label for="cat-color-orange">
+      <input class="checkbox" name="cat-color" id="cat-color-orange" type="checkbox" value="orange"/>Orange
+    </label>
+  </div>
+   <div>
+    <label for="cat-color-white">
+      <input class="checkbox" name="cat-color" id="cat-color-white" type="checkbox" value="white"/>White
+    </label>
+  </div>
+   <div>
+    <label for="cat-color-black">
+      <input class="checkbox" name="cat-color" id="cat-color-black" type="checkbox" value="black"/>Black
+    </label>
+  </div>
+   <div>
+    <label for="cat-color-tortoise">
+      <input class="checkbox" name="cat-color" id="cat-color-tortoise" type="checkbox" value="Tortoise"/>Tortoise
+    </label>
+  </div>
+   <div>
+    <label for="cat-color-other">
+      <input class="checkbox" name="cat-color" id="cat-color-other" type="checkbox" value="other"/>Other
+    </label>
+  </div>
+  <div>
+    <label for="cat-color-none">
+      <input class="checkbox" name="cat-color" id="cat-color-none" type="checkbox" value="none"/>I don't have a cat, I don't know why I'm still here.
+    </label>
+  </div>
+  <!-- Repeat the pattern for other checkboxes -->
+</div>
+
+      <!-- Add labels for the remaining checkboxes -->
+      <!-- ... (similar changes) ... -->
+
+    <div class="textarea">
+      <p>What's your favorite thing about your cat?</p>
+      <textarea type="text" placeholder="my cat does the funniest thing..."></textarea>
+    </div>
+
+    <div class="submit">
+      <!-- Remove one of the type="submit" attributes -->
+      <input type="submit" id="submit" value="Meow" />
+    </div>
+  </form>
+</body>
+</html>
+
+
+
