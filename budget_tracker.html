@@ -16,39 +16,49 @@
     <p id="totalExpenses">Total Expenses: $0</p>
     <p id="remainingBalance">Remaining Balance: $0</p>
     <canvas id="expenseChart" width="400" height="200"></canvas>
-    <label for="month">Mes:</label>
-    <select id="month">
-      <option>Enero</option>
-      <option>Febrero</option>
-      <option>Marzo</option>
-      <option>Abril</option>
-      <option>Mayo</option>
-      <option>Junio</option>
-      <option>Julio</option>
-      <option>Agosto</option>
-      <option>Septiembre</option>
-      <option>Octubre</option>
-      <option>Noviembre</option>
-      <option>Diciembre</option>
-    </select><br>
-    <label for="item">Concepto:</label>
-    <input id="item" placeholder="Nombre del concepto"><br>
-    <label for="type">Tipo:</label>
-    <select id="type">
-      <option value="Income">Ingreso</option>
-      <option value="Expense">Gasto</option>
-    </select><br>
-    <label for="amount">Monto:</label>
-    <input id="amount" type="number"><br>
-    <label for="category">Categoría:</label>
-    <select id="category">
-      <option>Food</option>
-      <option>Shopping</option>
-      <option>Gift</option>
-      <option>Subscription</option>
-      <option>Pet</option>
-      <option>Salary</option>
-    </select><br>
+    <div class="form-group">
+      <label for="month">Mes:</label>
+      <select id="month">
+        <option>Enero</option>
+        <option>Febrero</option>
+        <option>Marzo</option>
+        <option>Abril</option>
+        <option>Mayo</option>
+        <option>Junio</option>
+        <option>Julio</option>
+        <option>Agosto</option>
+        <option>Septiembre</option>
+        <option>Octubre</option>
+        <option>Noviembre</option>
+        <option>Diciembre</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="item">Concepto:</label>
+      <input id="item" placeholder="Nombre del concepto">
+    </div>
+    <div class="form-group">
+      <label for="type">Tipo:</label>
+      <select id="type">
+        <option value="Income">Ingreso</option>
+        <option value="Expense">Gasto</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="amount">Monto:</label>
+      <input id="amount" type="number">
+    </div>
+    <div class="form-group">
+      <label for="category">Categoría:</label>
+      <select id="category">
+        <option>Food</option>
+        <option>Shopping</option>
+        <option>Gift</option>
+        <option>Subscription</option>
+        <option>Pet</option>
+        <option>Salary</option>
+      </select>
+    </div>
     <button onclick="app.addTransaction()">Agregar</button>
     <table id="budgetTable">
       <thead>
@@ -60,9 +70,15 @@
 
   <div class="container" id="debt">
     <h2>Debt Tracker</h2>
-    <label>Debt Name: <input id="debtName"></label><br>
-    <label>Total Owed: <input id="debtTotal" type="number"></label><br>
-    <label>Monthly Goal: <input id="monthlyGoal" type="number"></label><br>
+    <div class="form-group">
+      <label>Debt Name: <input id="debtName"></label>
+    </div>
+    <div class="form-group">
+      <label>Total Owed: <input id="debtTotal" type="number"></label>
+    </div>
+    <div class="form-group">
+      <label>Monthly Goal: <input id="monthlyGoal" type="number"></label>
+    </div>
     <div class="button-container">
       <button onclick="app.addDebt()">Add Debt</button>
       <button id="exportButton" onclick="app.exportToExcel()">Download Excel</button>
