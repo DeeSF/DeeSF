@@ -140,7 +140,18 @@ const app = {
     this.budgetData.forEach((e, i) => {
       inc += e.type === 'Income' ? e.amount : 0;
       exp += e.type === 'Expense' ? e.amount : 0;
-      const row = `<tr><td>${e.month}</td><td>${e.item}</td><td>${e.type}</td><td>${e.amount}</td><td>${e.category}</td><td><button onclick="app.editTransaction(${i})">Editar</button><button onclick="app.deleteTransaction(${i})">Borrar</button></td></tr>`;
+      const row = `
+        <tr>
+          <td data-label="Mes">${e.month}</td>
+          <td data-label="Concepto">${e.item}</td>
+          <td data-label="Tipo">${e.type}</td>
+          <td data-label="Monto">${e.amount}</td>
+          <td data-label="Categoría">${e.category}</td>
+          <td data-label="Acciones">
+            <button onclick="app.editTransaction(${i})">Editar</button>
+            <button onclick="app.deleteTransaction(${i})">Borrar</button>
+          </td>
+        </tr>`;
       tbody.innerHTML += row;
     });
     document.getElementById('totalIncome').textContent = `Total Ingresos: $${inc.toFixed(2)}`;
@@ -154,7 +165,20 @@ const app = {
     this.debtData.forEach((d, i) => {
       const rem = d.total - d.paid;
       const est = Math.ceil(rem / d.monthly);
-      const row = `<tr><td>${d.name}</td><td>${d.total}</td><td>${d.paid}</td><td>${rem}</td><td>${d.monthly}</td><td>${est}</td><td><button onclick="app.makePayment(${i})">Pago</button><button onclick="app.editDebt(${i})">Editar</button><button onclick="app.deleteDebt(${i})">Borrar</button></td></tr>`;
+      const row = `
+        <tr>
+          <td data-label="Name">${d.name}</td>
+          <td data-label="Total Owed">${d.total}</td>
+          <td data-label="Total Paid">${d.paid}</td>
+          <td data-label="Remaining">${rem}</td>
+          <td data-label="Monthly Goal">${d.monthly}</td>
+          <td data-label="Est. Months">${est}</td>
+          <td data-label="Action">
+            <button onclick="app.makePayment(${i})">Pago</button>
+            <button onclick="app.editDebt(${i})">Editar</button>
+            <button onclick="app.deleteDebt(${i})">Borrar</button>
+          </td>
+        </tr>`;
       tbody.innerHTML += row;
     });
   },

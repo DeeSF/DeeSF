@@ -1,31 +1,27 @@
-.toast {
-   position: fixed;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #4CAF50;
-  color: white;
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-size: 16px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  z-index: 1000;
+/* General Styles */
+:root {
+  --primary-bg: #2f2f2f;
+  --secondary-bg: #3c3c3c;
+  --text-color: #ffffff;
+  --header-color: #4CAF50;
+  --button-primary: #2196F3;
+  --button-primary-hover: #1976D2;
+  --button-secondary: #4CAF50;
+  --button-secondary-hover: #45a049;
+  --border-color: #555;
 }
 
-
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 body {
-  margin: 0;
   font-family: 'Arial', sans-serif;
-  background-color: #2f2f2f;
-  color: #ffffff;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
-  padding: 20px;
+  background-color: var(--primary-bg);
+  color: var(--text-color);
+  padding: 10px;
 }
 
 .container-wrapper {
@@ -35,88 +31,66 @@ body {
   width: 100%;
 }
 
-@media (min-width: 768px) {
-  .container-wrapper {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  .container {
-    width: 48%;
-  }
-}
 .container {
-  background-color: #3c3c3c;
+  background-color: var(--secondary-bg);
   border-radius: 10px;
   padding: 20px;
-  margin: 15px;
-  width: 48%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 100%;
 }
 
 h2 {
-  font-size: 24px;
+  font-size: 1.5rem;
   text-align: center;
-  color: #fff;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 input, select, button {
-  padding: 8px;
-  margin: 6px 0;
-  border-radius: 6px;
-  border: 1px solid #555;
-  font-size: 14px;
-}
-
-.button-container {
-  display: flex;
-  justify-content: space-between;
   width: 100%;
-  margin-top: 20px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  font-size: 1rem;
+  background-color: #555;
+  color: var(--text-color);
 }
 
-button, #exportButton, #importButton {
-  padding: 10px 20px;
-  font-size: 16px;
-  border-radius: 6px;
+button {
   cursor: pointer;
+  background-color: var(--button-primary);
+  border: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--button-primary-hover);
 }
 
 #exportButton {
-  background-color: #2196F3;
+  background-color: var(--button-secondary);
 }
 
 #exportButton:hover {
-  background-color: #1976D2;
+  background-color: var(--button-secondary-hover);
 }
 
-#importButton {
-  background-color: #4CAF50;
-}
-
-#importButton:hover {
-  background-color: #45a049;
-}
-
+/* Table Styles */
 table {
   width: 100%;
-  margin-top: 15px;
+  margin-top: 20px;
   border-collapse: collapse;
-}
-
-table, th, td {
-  border: 1px solid #555;
 }
 
 th, td {
   padding: 12px;
   text-align: left;
+  border: 1px solid var(--border-color);
 }
 
-th {
-  background-color: #4CAF50;
-  color: white;
+thead {
+  background-color: var(--header-color);
 }
 
 tbody tr:nth-child(even) {
@@ -125,6 +99,74 @@ tbody tr:nth-child(even) {
 
 tbody tr:hover {
   background-color: #666;
+}
+
+/* Responsive Tables */
+@media screen and (max-width: 600px) {
+  thead {
+    display: none;
+  }
+
+  tr {
+    display: block;
+    margin-bottom: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  td {
+    display: block;
+    text-align: right;
+    border: none;
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+    padding-left: 50%;
+  }
+
+  td:last-child {
+    border-bottom: none;
+  }
+
+  td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    text-align: left;
+    font-weight: bold;
+  }
+}
+
+/* Larger Screen Layout */
+@media (min-width: 768px) {
+  body {
+    padding: 20px;
+  }
+
+  .container-wrapper {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .container {
+    width: 48%;
+  }
+}
+
+/* Toast Notification */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 1000;
+  color: white;
 }
 
 /* Modal Styles */
@@ -141,14 +183,13 @@ tbody tr:hover {
 }
 
 .modal-content {
-  background-color: #2f2f2f;
-  margin: 15% auto;
+  background-color: var(--primary-bg);
+  margin: 10% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%;
+  width: 90%;
   max-width: 500px;
   border-radius: 10px;
-  color: #ffffff;
 }
 
 .close-button {
@@ -160,7 +201,7 @@ tbody tr:hover {
 
 .close-button:hover,
 .close-button:focus {
-  color: #fff;
+  color: var(--text-color);
   text-decoration: none;
   cursor: pointer;
 }
