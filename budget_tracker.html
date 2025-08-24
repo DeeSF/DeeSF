@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Budget & Debt Tracker</title>
+  <link rel="stylesheet" href="budget_styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+
+<div class="container-wrapper">
+  <div class="container" id="budget">
+    <h2>Budget Tracker</h2>
+    <p id="totalIncome">Total Income: $0</p>
+    <p id="totalExpenses">Total Expenses: $0</p>
+    <p id="remainingBalance">Remaining Balance: $0</p>
+    <canvas id="expenseChart" width="400" height="200"></canvas>
+    <label for="month">Mes:</label>
+    <select id="month">
+      <option>Enero</option>
+      <option>Febrero</option>
+      <option>Marzo</option>
+      <option>Abril</option>
+      <option>Mayo</option>
+      <option>Junio</option>
+      <option>Julio</option>
+      <option>Agosto</option>
+      <option>Septiembre</option>
+      <option>Octubre</option>
+      <option>Noviembre</option>
+      <option>Diciembre</option>
+    </select><br>
+    <label for="item">Concepto:</label>
+    <input id="item" placeholder="Nombre del concepto"><br>
+    <label for="type">Tipo:</label>
+    <select id="type">
+      <option value="Income">Ingreso</option>
+      <option value="Expense">Gasto</option>
+    </select><br>
+    <label for="amount">Monto:</label>
+    <input id="amount" type="number"><br>
+    <label for="category">Categoría:</label>
+    <select id="category">
+      <option>Food</option>
+      <option>Shopping</option>
+      <option>Gift</option>
+      <option>Subscription</option>
+      <option>Pet</option>
+      <option>Salary</option>
+    </select><br>
+    <button onclick="app.addTransaction()">Agregar</button>
+    <table id="budgetTable">
+      <thead>
+        <tr><th>Mes</th><th>Concepto</th><th>Tipo</th><th>Monto</th><th>Categoría</th><th>Acciones</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <div class="container" id="debt">
+    <h2>Debt Tracker</h2>
+    <label>Debt Name: <input id="debtName"></label><br>
+    <label>Total Owed: <input id="debtTotal" type="number"></label><br>
+    <label>Monthly Goal: <input id="monthlyGoal" type="number"></label><br>
+    <div class="button-container">
+      <button onclick="app.addDebt()">Add Debt</button>
+      <button id="exportButton" onclick="app.exportToExcel()">Download Excel</button>
+    </div>
+    <table id="debtTable">
+      <thead>
+        <tr><th>Name</th><th>Total Owed</th><th>Total Paid</th><th>Remaining</th><th>Monthly Goal</th><th>Est. Months</th><th>Action</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</div>
+
+<div style="width:100%; text-align:center; margin-top:20px;">
+  <input type="file" id="fileInput" accept=".json,.xlsx" />
+  <button id="importButton" onclick="app.importFile()">Importar Archivo</button>
+  <button onclick="app.clearAllData()" style="background-color:#f44336; color:white;">Borrar Todo</button>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.3/xlsx.full.min.js"></script>
+<script src="budget_script.js"></script>
+<div id="toast" style="display: none;"></div>
+
+<div id="editModal" class="modal">
+  <div class="modal-content">
+    <span class="close-button">&times;</span>
+    <h2 id="modalTitle">Edit</h2>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+</body>
+</html>
